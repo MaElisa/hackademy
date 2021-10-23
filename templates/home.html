@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-
-  </head>
+  <link rel="stylesheet" href="styles.css">
   <body>
-    <h1>Live streaming</h1>
-    <div>
+    <navbar>
+      <ul>
+        <li><a href="">Hackademy</a></li>
+      </ul>
+      <ul>
+        <li><a href="">Home</a></li>
+      </ul>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Classes</a></li>
+        <li><a href="">Tech</a></li>
+        <li><a href="">About</a></li>
+      </ul>
+    </navbar>
 
-        <img src="{{ url_for('video') }}" width="50%"/>
-        <p>{{url_for('text')}}</p>
-    </div>
-
-    </body>
-
-
+    <section id='hero'>
+      <div class='video'><img src="images/video-placeholder.png"></div>
+      <div id='banner'>
+          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </section>
+    <section id = 'services'>
+      <h1>How Hackademy Works </h1>
+      <section id='services-individual'>
+        <div class='infomercial'>
+          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+            <div class='info-txt-box'>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+              </p>
+            </div>
+        </div>
+        <div class='infomercial'>
+          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+          <div class='info-txt-box'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            </p>
+          </div>
+        </div>
+        <div class='infomercial'>
+          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+          <div class='info-txt-box'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
 </html>
