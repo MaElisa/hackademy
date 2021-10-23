@@ -1,8 +1,9 @@
-# run with         python -m flask run
+# run with         python3 -m flask run
 
 from flask import Flask,render_template,Response
 import cv2
 import mediapipe as mp
+
 app=Flask(__name__)
 cap=cv2.VideoCapture(0)
 
