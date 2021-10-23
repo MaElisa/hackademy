@@ -3,17 +3,21 @@ navbar {
   align-items: center;
   padding: 15px;
   background-color: white;
+  opacity: 0.9;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   font-size: 20px;
   font-style: bold;
   font-family: "Raleway", sans-serif;
   position: fixed; /* Set the navbar to fixed position */
-
   width: 100%; /* Full width */
 }
 
 navbar ul li a {
   color: black;
+}
+
+ul li {
+  opacity: 1;
 }
 
 #hero img {
