@@ -1,2 +1,2 @@
-# sweeacademy
+# hackademy
 dubhacks `21
