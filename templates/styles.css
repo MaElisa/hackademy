@@ -2,12 +2,27 @@ navbar {
   display: flex;
   align-items: center;
   padding: 15px;
-  background-color: #333;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  /*box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);*/
+  font-size: 20px;
+  font-style: bold;
+  font-family: "Raleway", sans-serif;
+  position: fixed; /* Set the navbar to fixed position */
+
+  width: 100%; /* Full width */
+}
+
+navbar ul li a {
+  color: black;
 }
 
 #hero img {
   width: 500px;
+}
+
+#banner-header {
+  font-size: 50px;
+  font-style: bold;
 }
 
 #hero {
@@ -17,6 +32,17 @@ navbar {
   justify-content: space-evenly;
   border-style: solid;
   border-width: 0 0 1px 0;
+  height: 500px;
+}
+
+.video {
+  display: flex;
+  align-items: center;
+}
+
+#banner-box {
+  display: flex;
+  align-items: center;
 }
 
 #hero div {
@@ -49,6 +75,12 @@ navbar {
   align-items: center;
 }
 
+#services h1 {
+  font-style: bold;
+  font-family: "Raleway", sans-serif;
+  font-size: 50px;
+}
+
 .infomercial-img {
   width: 150px;
 }
@@ -65,9 +97,7 @@ navbar {
 ul {
   list-style-type: none;
   margin: 0;
-
   overflow: hidden;
-
   width: 100%;
 }
 
@@ -81,13 +111,15 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+  background-color: #d3ded6;
 }
 
 body {
   margin: 0;
+  font-family: "Lora", serif;
 }
