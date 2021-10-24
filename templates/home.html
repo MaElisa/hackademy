@@ -10,30 +10,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
   <body>
     <navbar>
-      <ul>
-        <li><a href="">HACKADEMY</a></li>
+      <ul id='logo-menu'>
+        <li id='logo-list'><a href=""><img id='logo' src='../static/images/Logo.png'></li>
+        <li id='hackademy'>HACKADEMY</li>
       </ul>
-      <ul>
-        <li></li>
+      <ul id='web-title'>
+        <li><a href=""></a></li>
       </ul>
-      <ul>
-        <li><a href="">HOME</a></li>
+      <ul id='menu-items'>
         <li><a href="">CLASSES</a></li>
-        <li><a href="">TECH</a></li>
         <li><a href="">ABOUT</a></li>
+        <li><a href="">LOG IN</a></li>
+        <li><a href=""></a></li>
       </ul>
     </navbar>
 
     <section id='hero'>
-      <div class='video'><img src="{{ url_for('video') }}" width="50%" />
-        <p>{{url_for('text')}}</p>
+      <div class='video'><img id='gif' src='../static/images/cutting.gif'><!--<img src="{{ url_for('video') }}" width="50%" />
+        <p>{{url_for('text')}}</p> -->
       </div>
       <div id='banner-box'>
         <div id='banner'>
-          <h1 id='banner-header'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
+          <h1 id='banner-header'>Made for learners, <br> by learners.</h1>
+          <p>
+            Engaging with real-time feedback without the pressure of responding real-time.
+          </p>
         </div>
       </div>
     </section>
@@ -43,25 +44,34 @@
         <div class='infomercial'>
           <div class='info-img-box'><img class='infomercial-img' src="../static/images/Hands.png"></div>
             <div class='info-txt-box'>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+              <p>Courses are taught with a hand-on approach, allowing for learners to fully engage with the content
               </p>
             </div>
         </div>
         <div class='infomercial'>
           <div class='info-img-box'><img class='infomercial-img' src="../static/images/Feedback.png"></div>
           <div class='info-txt-box'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            <p>Our technology provides learners with immediate feedback using our tracking emchanisms, assessing technique real time.
             </p>
           </div>
         </div>
         <div class='infomercial'>
           <div class='info-img-box'><img class='infomercial-img' src="../static/images/Private.png"></div>
           <div class='info-txt-box'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            <p>All course progress, tracking, and identities will be kept private and secure - guaranteed.
             </p>
           </div>
         </div>
       </section>
+    </section>
+    <section class='footer'>
+      <div>
+        <ul>
+          <li><a href="">CONTACT US</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">SOCIAL MEDIA</a></li>
+          </ul>
+      </div>
     </section>
   </body>
 </html>
