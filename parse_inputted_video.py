@@ -39,4 +39,3 @@ def parse_frames(path_to_video):
 if __name__=="__main__":
     app.run(debug=True)
 
-    
