@@ -131,6 +131,32 @@ h2 {
   width: 600px;
 }
 
+.video-camera img {
+  max-width: 560px;
+  width: 100%;
+}
+
+.video-section {
+  margin: auto;
+  width: 70%;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -5px 5px 5px grey;
+}
+
+.video-player {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.video-player iframe {
+  overflow: hidden;
+}
+
 #classes img {
   width: 300px;
 }
@@ -173,7 +199,13 @@ h2 {
 .heading {
   font-family: "Raleway", sans-serif;
   font-size: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 33.5px;
+}
+
+#sales {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .infomercial-img {
@@ -198,6 +230,11 @@ ul {
 
 navbar li {
   float: left;
+}
+
+.class-collection a {
+  text-decoration: none;
+  color: black;
 }
 
 li a {

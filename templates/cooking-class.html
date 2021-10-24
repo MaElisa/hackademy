@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    -->
+    <link rel='stylesheet' href='../static/styles/styles.css' >
+    <script src="classes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
+  <body id='classes-body'>
+    <navbar>
+      <ul id='logo-menu'>
+        <li id='logo-list'><a href="home.html"><img id='logo' src='../static/images/Logo.png'></a></li>
+        <li id='hackademy'>HACKADEMY</li>
+      </ul>
+      <ul id='menu-items'>
+        <li><a href="">MAKE A COURSE</a></li>
+        <li><a href="">CLASSES</a></li>
+        <li><a href="">ABOUT</a></li>
+        <li><a href="">LOG IN/SIGN UP</a></li>
+      </ul>
+    </navbar>
+    <div id='courses-header'>
+      <h1 class='heading'>COOKING<h1>
+    </div>
+
+    <section class='video-section'>
+        <h2>
+            Lecture 01: Learning To Use A Knife
+        </h2>
+        <div class='video-player'>
+            <div class='video-lecture'>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VJNA4vrdWec" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class='video-camera'><img src='../static/images/video-placeholder.png'</div>
+        </div>
+        <div id='sales'>
+            <p> This is a demo - Purchase to unlock the full course!</p>
+            <button id='buy-btn'> Buy Course </button>
+        </div>
+    </section>
+
+    
+    <section class='footer'>
+      <div>
+        <ul>
+          <li><a href="">CONTACT US</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">SOCIAL MEDIA</a></li>
+          </ul>
+      </div>
+    </section>
+  </body>
+</html>
