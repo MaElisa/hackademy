@@ -5,11 +5,15 @@
       <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
     -->
     <link rel='stylesheet' href='../static/styles/styles.css' >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="classes.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
   <body id='classes-body'>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
     <navbar>
       <ul id='logo-menu'>
         <li id='logo-list'><a href="home.html"><img id='logo' src='../static/images/Logo.png'></a></li>
@@ -89,7 +93,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class='footer'>
       <div>
         <ul>
@@ -98,6 +102,11 @@
           <li><a href="">SOCIAL MEDIA</a></li>
           </ul>
       </div>
+<script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
     </section>
   </body>
 </html>
