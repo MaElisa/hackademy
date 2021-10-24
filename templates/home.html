@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
   <body>
     <navbar>
-      <ul>
-        <li><a href="">HACKADEMY</a></li>
+      <ul id='logo-menu'>
+        <li id='logo-list'><a href=""><img id='logo' src='../static/images/Logo.png'></li>
+        <li id='hackademy'>HACKADEMY</li>
       </ul>
-      <ul>
-        <li></li>
+      <ul id='web-title'>
+        <li><a href=""></a></li>
       </ul>
       <ul id='menu-items'>
         <li><a href="">CLASSES</a></li>
@@ -25,8 +26,8 @@
     </navbar>
 
     <section id='hero'>
-      <div class='video'><img src="{{ url_for('video') }}" width="50%" />
-        <p>{{url_for('text')}}</p>
+      <div class='video'><img id='gif' src='../static/images/cutting.gif'><!--<img src="{{ url_for('video') }}" width="50%" />
+        <p>{{url_for('text')}}</p> -->
       </div>
       <div id='banner-box'>
         <div id='banner'>

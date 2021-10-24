@@ -1,7 +1,6 @@
 navbar {
   display: flex;
   align-items: center;
-  padding: 20px;
   background-color: white;
   opacity: 0.9;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
@@ -12,6 +11,29 @@ navbar {
   width: 100%; /* Full width */
 }
 
+#hackademy {
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+}
+
+#logo-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#web-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logo-list {
+  padding: 0;
+  margin: 0;
+}
+
 navbar ul li a {
   color: black;
 }
@@ -20,8 +42,12 @@ ul li {
   opacity: 1;
 }
 
-#hero img {
-  width: 500px;
+#logo {
+  width: 80px;
+}
+
+#gif {
+  width: 600px;
 }
 
 #banner-header {
@@ -53,6 +79,7 @@ ul li {
   align-items: center;
   border-style: solid;
   border-color: #d3ded6;
+  width: 600px;
 }
 
 #banner-box {
@@ -62,7 +89,6 @@ ul li {
 
 #hero div {
   margin: 20px;
-  width: 600px;
 }
 
 .info-img-box {
