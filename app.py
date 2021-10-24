@@ -138,7 +138,7 @@ import faces
 global started
 started = False
 app=Flask(__name__)
-cap=cv2.VideoCapture(-1)
+cap=cv2.VideoCapture(0)
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
