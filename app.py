@@ -143,15 +143,58 @@ cap=cv2.VideoCapture(0)
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
-
+# mp_holistic = mp.solutions.holistic
+# mp_drawing_styles = mp.solutions.drawing_styles
+# holistic =  mp_holistic.Holistic()
 folderPath = "Images"
 image = os.listdir(folderPath)
 pic = cv2.imread(f'{folderPath}/hands.png')
 grat = cv2.imread(f'{folderPath}/grats.png')
 
+# def generate_frames2(picture):
+  # cap = cv2.VideoCapture(0)
+  # with mp_holistic.Holistic(
+  #   min_detection_confidence=0.5,
+  #   min_tracking_confidence=0.5) as holistic:
+  #   while True:
+  #     success, img = cap.read()
+  #     if not success:
+  #         break
+  #     else:
+  #       results = holistic.process(img)
+  #       if results.pose_landmarks:
+
+  #         # To improve performance, optionally mark the image as not writeable to
+  #         # pass by reference.
+  #         img.flags.writeable = False
+  #         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+  #         # print (abs(results.pose_landmarks.landmark[16] - results.pose_landlandmarks.landmark[15]))
+  #         # Draw landmark annotation on the image.
+  #         img.flags.writeable = True
+  #         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+  #         mpDraw.draw_landmarks(
+  #           img,
+  #           results.face_landmarks,
+  #           mp_holistic.FACEMESH_CONTOURS,
+  #           landmark_drawing_spec=None,
+  #           connection_drawing_spec=mp_drawing_styles
+  #           .get_default_face_mesh_contours_style())
+  #         mpDraw.draw_landmarks(
+  #           img,
+  #           results.pose_landmarks,
+  #           mp_holistic.POSE_CONNECTIONS,
+  #           landmark_drawing_spec=mp_drawing_styles
+  #           .get_default_pose_landmarks_style())
+  #         ret,buffer=cv2.imencode('.jpg',img)
+  #         img=buffer.tobytes()
+  #         yield(b'--frame\r\n'
+  #                       b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
+  #   # Flip the image horizontally for a selfie-view display.
+#
+
 def generate_frames(picture):
   started = False
-  i = 500
+  i = 250
   while True:
       ## read the camera frame
       success,img=cap.read()
@@ -159,7 +202,7 @@ def generate_frames(picture):
           break
       else:
         if not started:
-          cv2.putText(img, f'Please put your hands flat on the table!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+          cv2.putText(img, f'Please put your hands flat on the table!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
         if (i <= 0):
@@ -180,20 +223,22 @@ def generate_frames(picture):
               left = results.multi_hand_landmarks[0]
               # print(f"first{math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y])}")
               # print(f"second{math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])}")
-              if (math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y]) > math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])):
+              if ((math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y]) > math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])) and started):
                 cv2.putText(img, f'Great job! Continue for {round(i/50)} more seconds', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
                 if i >= 0:
                   i -= 1;
               else:
-                if i < 0:
-                  i = 500;
-                cv2.putText(img, f'Bend your left finger!', (200, 200), cv2.FONT_HERSHEY_PLAIN, 10, (0, 0, 255), 3)
+                if i > 0:
+                  i = 250;
+                if started:
+                  cv2.putText(img, f'Bend your left finger!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
               if checkHand(results.multi_hand_landmarks):
                 started = True;
               if started:
                 checkProperTechnique(results.multi_hand_landmarks)
             else:
-              cv2.putText(img, f'Please keep both hands in frame!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+              if started:
+                cv2.putText(img, f'Please keep both hands in frame!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
               # print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]}")
             # if not picture:
             #     yield(mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS))
@@ -210,6 +255,11 @@ def checkHand(hand):
 
 def checkProperTechnique(hand):
   return True
+
+
+# @app.route('/yoga2')
+# def yoga2():
+#     return Response(generate_frames2(True),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/')
 def index():
@@ -255,18 +305,6 @@ def tes():
       dev_port +=1
   print(available_ports)
   return "asdf"
-
-@app.route('/demo')
-def demo():
-    return Response(chinese_calligraphy_demo.generate_frames(True),mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/input')
-def user_input():
-    return Response(parse_inputted_video.parse_frames('chinese-calligraphy-demo.mp4'),mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/faces')
-def face():
-    return Response(faces.parse_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/classes.html')
 def classes():
