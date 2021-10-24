@@ -148,7 +148,6 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border-style: solid;
   height: 500px;
 }
 
@@ -164,8 +163,7 @@ h2 {
 .video {
   display: flex;
   align-items: center;
-  border-style: solid;
-  border-color: #d3ded6;
+
   width: 600px;
 }
 
