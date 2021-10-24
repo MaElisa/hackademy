@@ -4,6 +4,8 @@ from flask import Flask,render_template,Response
 import cv2
 import mediapipe as mp
 import chinese_calligraphy_demo
+import parse_inputted_video
+import faces
 
 app=Flask(__name__)
 cap=cv2.VideoCapture(0)
@@ -56,7 +58,6 @@ def text():
 
 @app.route('/tes')
 def tes():
-
   is_working = True
   dev_port = 0
   working_ports = []
@@ -83,6 +84,14 @@ def tes():
 @app.route('/demo')
 def demo():
     return Response(chinese_calligraphy_demo.generate_frames(True),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/input')
+def user_input():
+    return Response(parse_inputted_video.parse_frames('chinese-calligraphy-demo.mp4'),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/faces')
+def face():
+    return Response(faces.parse_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
     app.run(debug=True)
