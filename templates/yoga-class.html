@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    -->
+    <link rel='stylesheet' href='../static/styles/styles.css' >
+    <script src="classes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
+  <body id='classes-body'>
+    <navbar>
+      <ul id='logo-menu'>
+        <li id='logo-list'><a href="home.html"><img id='logo' src='../static/images/Logo.png'></a></li>
+        <li id='hackademy'>HACKADEMY</li>
+      </ul>
+      <ul id='menu-items'>
+        <li><a href="">MAKE A COURSE</a></li>
+        <li><a href="classes.html">CLASSES</a></li>
+        <li><a href="">ABOUT</a></li>
+        <li><a href="">LOG IN/SIGN UP</a></li>
+      </ul>
+    </navbar>
+    <div id='courses-header'>
+      <h1 class='heading'>YOGA<h1>
+    </div>
+
+    <section class='video-section'>
+        <h2>
+            Lecture 01: Learning The Basics
+        </h2>
+        <div class='video-player'>
+            <div class='video-lecture'>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pWobp3phsEU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class='video-camera'><img src='../static/images/video-placeholder.png'> <!--<img src="{{ url_for('video') }}" width="50%" />
+        <p>{{url_for('text')}}</p> --></div>
+        </div>
+        <div id='sales'>
+            <button id='buy-btn'> Buy Full Course </button>
+        </div>
+        <div id='up-next'>
+            <div class='upcoming-lect'>
+            <a href=''>
+                <p>Lecture 02: Learning The Alphabet</p>
+                <img src='../static/images/alphabet.png'>
+            </a>
+            </div>
+            <div class='upcoming-lect'>
+            <a href=''>
+                <p>Lecture 03: Learning Common Phrases</p>
+                <img src='../static/images/phrases.png'>
+            </a>
+            </div>
+            <div class='upcoming-lect'>
+            <a href=''>
+                <p>Lecture 04: Learning To Craft Sentences</p>
+                <img src='../static/images/sentences.png'>
+            </a>
+            </div>
+            <div class='upcoming-lect'>
+            <a href=''>
+                <p>Lecture 05: Getting Real-Life Practice</p>
+                <img src='../static/images/real-life.png'>
+            </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class='footer'>
+      <div>
+        <ul>
+          <li><a href="">CONTACT US</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">SOCIAL MEDIA</a></li>
+          </ul>
+      </div>
+    </section>
+  </body>
+</html>
