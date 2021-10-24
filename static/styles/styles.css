@@ -3,17 +3,21 @@ navbar {
   align-items: center;
   padding: 15px;
   background-color: white;
-  /*box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);*/
+  opacity: 0.9;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   font-size: 20px;
   font-style: bold;
   font-family: "Raleway", sans-serif;
   position: fixed; /* Set the navbar to fixed position */
-
   width: 100%; /* Full width */
 }
 
 navbar ul li a {
   color: black;
+}
+
+ul li {
+  opacity: 1;
 }
 
 #hero img {
@@ -26,7 +30,7 @@ navbar ul li a {
 }
 
 #hero {
-  padding: 50px 0 50px 0;
+  padding: 150px 0 50px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -38,6 +42,8 @@ navbar ul li a {
 .video {
   display: flex;
   align-items: center;
+  border-style: solid;
+  border-color: #d3ded6;
 }
 
 #banner-box {
@@ -76,9 +82,9 @@ navbar ul li a {
 }
 
 #services h1 {
-  font-style: bold;
   font-family: "Raleway", sans-serif;
   font-size: 50px;
+  margin-bottom: 100px;
 }
 
 .infomercial-img {

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <!--
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    -->
+    <link rel='stylesheet' href='../static/styles/styles.css' >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
@@ -11,7 +14,7 @@
         <li><a href="">HACKADEMY</a></li>
       </ul>
       <ul>
-        <li><a href="">P...</a></li>
+        <li></li>
       </ul>
       <ul>
         <li><a href="">HOME</a></li>
@@ -23,7 +26,7 @@
 
     <section id='hero'>
       <div class='video'><img src="{{ url_for('video') }}" width="50%" />
-      <p>{{url_for('text')}}</p>
+        <p>{{url_for('text')}}</p>
       </div>
       <div id='banner-box'>
         <div id='banner'>
@@ -38,21 +41,21 @@
       <h1>How Hackademy Works </h1>
       <section id='services-individual'>
         <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Hands.png"></div>
             <div class='info-txt-box'>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
               </p>
             </div>
         </div>
         <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Feedback.png"></div>
           <div class='info-txt-box'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
             </p>
           </div>
         </div>
         <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="images/img-holder.png"></div>
+          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Private.png"></div>
           <div class='info-txt-box'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
             </p>
