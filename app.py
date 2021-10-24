@@ -3,6 +3,7 @@
 from flask import Flask,render_template,Response
 import cv2
 import mediapipe as mp
+import chinese_calligraphy_demo
 
 app=Flask(__name__)
 cap=cv2.VideoCapture(0)
@@ -78,6 +79,10 @@ def tes():
       dev_port +=1
   print(available_ports)
   return "asdf"
+
+@app.route('/demo')
+def demo():
+    return Response(chinese_calligraphy_demo.generate_frames(True),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
     app.run(debug=True)
