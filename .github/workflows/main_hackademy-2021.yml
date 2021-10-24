@@ -25,11 +25,11 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
-      - name: Create and start virtual environment
-        run: |
-          ls venv/bin
-          pwd
-          python3 -m venv venv
+#       - name: Create and start virtual environment
+#         run: |
+#           ls venv/bin
+#           pwd
+#           python3 -m venv venv
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
