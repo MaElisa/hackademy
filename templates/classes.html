@@ -5,63 +5,91 @@
       <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
     -->
     <link rel='stylesheet' href='../static/styles/styles.css' >
+    <script src="classes.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
-  <body>
+  <body id='classes-body'>
     <navbar>
-      <ul>
-        <li id='hackademy'><a href="">HACKADEMY</a></li>
+      <ul id='logo-menu'>
+        <li id='logo-list'><a href=""><img id='logo' src='../static/images/Logo.png'></li>
+        <li id='hackademy'>HACKADEMY</li>
       </ul>
-      <ul>
-        <li></li>
+      <ul id='web-title'>
+        <li><a href=""></a></li>
       </ul>
-      <ul>
-        <li><a href="">HOME</a></li>
+      <ul id='menu-items'>
         <li><a href="">CLASSES</a></li>
-        <li><a href="">TECH</a></li>
         <li><a href="">ABOUT</a></li>
+        <li><a href="">LOG IN</a></li>
+        <li><a href=""></a></li>
       </ul>
     </navbar>
-
-    <section id='hero'>
-      <div class='video'><img src="{{ url_for('video') }}" width="50%" />
-        <p>{{url_for('text')}}</p>
+    <div id='courses-header'>
+      <h1 class='heading'>COURSES<h1>
+    </div>
+    <section id='classes'>
+      <div class='category' id='everyday'>
+        <div id='header2'><h2>Everyday Activities</h2></div>
+        <div class='class-collection'>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          </div>
       </div>
-      <div id='banner-box'>
-        <div id='banner'>
-          <h1 id='banner-header'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
+      <div class='category' id='fine-motor'>
+      <div id='header2'><h2>Fine Motor</h2></div>
+        <div class='class-collection'>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+        </div>
+      </div>
+      <div class='category' id='facial-movement'>
+        <div id='header2'><h2>Facial Movement</h2></div>
+        <div class='class-collection'>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
+          <div class='class'>
+            <img src='../static/images/img-holder.png'>
+            <p> Placeholder </p>
+          </div>
         </div>
       </div>
     </section>
-    <section id = 'services'>
-      <h1>How Hackademy Works </h1>
-      <section id='services-individual'>
-        <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Hands.png"></div>
-            <div class='info-txt-box'>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-              </p>
-            </div>
-        </div>
-        <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Feedback.png"></div>
-          <div class='info-txt-box'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            </p>
-          </div>
-        </div>
-        <div class='infomercial'>
-          <div class='info-img-box'><img class='infomercial-img' src="../static/images/Private.png"></div>
-          <div class='info-txt-box'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            </p>
-          </div>
-        </div>
-      </section>
+    
+    <section class='footer'>
+      <div>
+        <ul>
+          <li><a href="">CONTACT US</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">SOCIAL MEDIA</a></li>
+          </ul>
+      </div>
     </section>
   </body>
 </html>
