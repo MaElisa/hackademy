@@ -215,6 +215,10 @@ def checkProperTechnique(hand):
 def index():
     return render_template('home.html')
 
+@app.route('/yoga-class.html')
+def index234234():
+  return render_template('yoga-class.html')
+
 @app.route('/home.html')
 def index5():
     return render_template('home.html')
