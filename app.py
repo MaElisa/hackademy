@@ -249,6 +249,15 @@ def user_input():
 def face():
     return Response(faces.parse_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/classes.html')
+def classes():
+  return render_template('classes.html')
+
+@app.route('/cooking-class.html')
+def classes2():
+  return render_template('cooking-class.html')
+
+
 if __name__=="__main__":
     app.debug = True
     app.run()
