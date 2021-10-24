@@ -62,16 +62,65 @@ ul li {
 #menu-items {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-stretch: expanded;
+  font-weight: 200;
+  width: 80%;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#header2 {
+  display: flex;
+  justify-content: center;
+  background: rgba(218, 223, 225, 0.75);
+}
+
+.class {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.class:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#classes {
+  display: flex;
+  flex-direction: column;
+}
+
+.class-collection {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #hero {
-  padding: 150px 0 50px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   border-style: solid;
-  border-width: 0 0 1px 0;
   height: 500px;
+}
+
+#hero,
+#classes {
+  border-width: 0 0 1px 0;
+}
+
+#hero {
+  padding: 200px 0 50px 0;
 }
 
 .video {
@@ -80,6 +129,10 @@ ul li {
   border-style: solid;
   border-color: #d3ded6;
   width: 600px;
+}
+
+#classes img {
+  width: 300px;
 }
 
 #banner-box {
@@ -117,7 +170,7 @@ ul li {
   padding: 100px;
 }
 
-#services h1 {
+.heading {
   font-family: "Raleway", sans-serif;
   font-size: 50px;
   margin-bottom: 100px;
@@ -164,7 +217,44 @@ navbar li a:hover {
 body {
   margin: 0;
   font-family: "Lora", serif;
+}
+
+#home-body {
   background-image: url("../images/background.png");
+  background-size: 100% 100%;
+}
+
+#courses-header {
+  padding-top: 143.9px;
+}
+
+/*
+#everyday {
+  background-color: rgba(178, 185, 205, 0.5);
+}
+
+#fine-motor {
+  background-color: rgba(118, 129, 158, 0.5);
+}
+
+#facial-movement {
+  background-color: rgba(77, 93, 133, 0.5);
+}
+
+#everyday,
+#fine-motor,
+#facial-movement {
+  box-shadow: -0.5em 0 0.4em grey;
+}
+
+*/
+
+#courses-header h1 {
+  text-align: center;
+}
+
+#classes-body {
+  background-image: url("../images/background2.png");
   background-size: 100% 100%;
 }
 

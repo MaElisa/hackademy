@@ -3,10 +3,18 @@
 from flask import Flask,render_template,Response
 import cv2
 import mediapipe as mp
+import math
+import os
 import chinese_calligraphy_demo
+<<<<<<< HEAD
 import parse_inputted_video
 import faces
+=======
+import HandTrackingModule as hm
+>>>>>>> 2d46df8528b20834d1160e0e0da1928ac39e51bc
 
+global started
+started = False
 app=Flask(__name__)
 cap=cv2.VideoCapture(0)
 
@@ -14,35 +22,61 @@ mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 
+folderPath = "Images"
+image = os.listdir(folderPath)
+pic = cv2.imread(f'{folderPath}/hands.png')
+
 def generate_frames(picture):
+  started = False
   i = 0
-  while i < 2:
+  while True:
       ## read the camera frame
       success,img=cap.read()
       if not success:
           break
       else:
+        if not started:
+          cv2.putText(img, f'Please put your hands flat on the table!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
         if results.multi_hand_landmarks:
-          print (len(results.multi_hand_landmarks))
-          print(type(results.multi_hand_landmarks[0].landmark[0]))
-          # for j in range(21):
-          #   print(f"{j}: {results.multi_hand_landmarks[1].landmark[j].x}")
+          # print (len(results.multi_hand_landmarks))
+          # print(type(results.multi_hand_landmarks[0].landmark[0]))
+          for j in range(10,13):
+            if len(results.multi_hand_landmarks) == 2:
+              print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]} \n TWO : {results.multi_hand_landmarks[1].landmark[j]}")
+              left = results.multi_hand_landmarks[0]
+              print(f"first{math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y])}")
+              print(f"second{math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])}")
+              if (math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y]) > math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])):
+                cv2.putText(img, f'Great job!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+              else:
+                cv2.putText(img, f'Bend your left finger!', (200, 200), cv2.FONT_HERSHEY_PLAIN, 10, (0, 0, 255), 3)
+              if checkHand(results.multi_hand_landmarks):
+                started = True;
+              if started:
+                checkProperTechnique(results.multi_hand_landmarks)
+            else:
+              cv2.putText(img, f'Please keep both hands in frame!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+              print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]}")
+            if not picture:
+                yield(mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS))
           # for j in range(21):
           #   print(f"{j}: {results.multi_hand_landmarks[0].landmark[j].x}")
           # i +=1
           for handLms in results.multi_hand_landmarks:
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
-            if not picture:
-                yield(mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS))
         ret,buffer=cv2.imencode('.jpg',img)
         img=buffer.tobytes()
       if picture :
           yield(b'--frame\r\n'
                   b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
 
+def checkHand(hand):
+  return (hand[0].landmark[20].x > hand[0].landmark[4].x > hand[1].landmark[4].x > hand[1].landmark[20].x) or (hand[0].landmark[20].x < hand[0].landmark[4].x < hand[1].landmark[4].x < hand[1].landmark[20].x)
 
+def checkProperTechnique(hand):
+  return True
 
 @app.route('/')
 def index():
