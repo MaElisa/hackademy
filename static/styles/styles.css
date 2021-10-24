@@ -100,21 +100,40 @@ h2 {
 }
 
 .upcoming-lect {
-  display: flex;
-  justify-content: space-between;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  width: 70%;
+}
+
+.upcoming-lect a {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.upcoming-lect a:hover {
+  background-color: #d3ded6;
+}
+
+#buy-btn:hover {
+  background-color: #9ea8a1;
+  cursor: pointer;
 }
 
 .upcoming-lect img {
   width: 100px;
+  border-radius: 5px;
 }
 
 #up-next {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
 }
 
 .class-collection {
