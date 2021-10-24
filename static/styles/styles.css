@@ -62,19 +62,22 @@ ul li {
 #menu-items {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 h2 {
+  font-family: "Raleway", sans-serif;
+  font-stretch: expanded;
+  font-weight: 200;
   width: 80%;
-  background-color: white;
   border-radius: 5px;
   padding: 3px;
-  box-shadow: 1px 5px 5px grey;
 }
 
 #header2 {
   display: flex;
   justify-content: center;
+  background: rgba(218, 223, 225, 0.75);
 }
 
 .class {
@@ -98,6 +101,7 @@ h2 {
 .class-collection {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   padding-top: 25px;
   padding-bottom: 25px;
 }
