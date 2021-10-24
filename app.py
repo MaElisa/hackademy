@@ -147,10 +147,11 @@ mpDraw = mp.solutions.drawing_utils
 folderPath = "Images"
 image = os.listdir(folderPath)
 pic = cv2.imread(f'{folderPath}/hands.png')
+grat = cv2.imread(f'{folderPath}/grats.png')
 
 def generate_frames(picture):
   started = False
-  i = 0
+  i = 500
   while True:
       ## read the camera frame
       success,img=cap.read()
@@ -161,18 +162,31 @@ def generate_frames(picture):
           cv2.putText(img, f'Please put your hands flat on the table!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
-        if results.multi_hand_landmarks:
-          # print (len(results.multi_hand_landmarks))
-          # print(type(results.multi_hand_landmarks[0].landmark[0]))
+        if (i <= 0):
+          # cv2.imshow(img, grat)
+          scale_percent = 200 # percent of original size
+          width = int(img.shape[1] * scale_percent / 100)
+          height = int(img.shape[0] * scale_percent / 100)
+          dim = (width, height)
+
+          # resize image
+          congrats = cv2.resize(grat, dim, interpolation = cv2.INTER_AREA)
+          img = congrats
+
+        if results.multi_hand_landmarks and i > 0:
           for j in range(10,13):
             if len(results.multi_hand_landmarks) == 2:
-              print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]} \n TWO : {results.multi_hand_landmarks[1].landmark[j]}")
+              # print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]} \n TWO : {results.multi_hand_landmarks[1].landmark[j]}")
               left = results.multi_hand_landmarks[0]
-              print(f"first{math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y])}")
-              print(f"second{math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])}")
+              # print(f"first{math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y])}")
+              # print(f"second{math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])}")
               if (math.dist([left.landmark[9].x, left.landmark[9].y],[left.landmark[10].x, left.landmark[10].y]) > math.dist([left.landmark[10].x, left.landmark[10].y],[left.landmark[12].x, left.landmark[12].y])):
-                cv2.putText(img, f'Great job!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+                cv2.putText(img, f'Great job! Continue for {round(i/50)} more seconds', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+                if i >= 0:
+                  i -= 1;
               else:
+                if i < 0:
+                  i = 500;
                 cv2.putText(img, f'Bend your left finger!', (200, 200), cv2.FONT_HERSHEY_PLAIN, 10, (0, 0, 255), 3)
               if checkHand(results.multi_hand_landmarks):
                 started = True;
@@ -180,12 +194,9 @@ def generate_frames(picture):
                 checkProperTechnique(results.multi_hand_landmarks)
             else:
               cv2.putText(img, f'Please keep both hands in frame!', (100, 100), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
-              print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]}")
-            if not picture:
-                yield(mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS))
-          # for j in range(21):
-          #   print(f"{j}: {results.multi_hand_landmarks[0].landmark[j].x}")
-          # i +=1
+              # print(f"{j}: {results.multi_hand_landmarks[0].landmark[j]}")
+            # if not picture:
+            #     yield(mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS))
           for handLms in results.multi_hand_landmarks:
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
         ret,buffer=cv2.imencode('.jpg',img)
@@ -202,6 +213,10 @@ def checkProperTechnique(hand):
 
 @app.route('/')
 def index():
+    return render_template('home.html')
+
+@app.route('/home.html')
+def index5():
     return render_template('home.html')
 
 @app.route('/video')
@@ -256,6 +271,11 @@ def classes():
 @app.route('/cooking-class.html')
 def classes2():
   return render_template('cooking-class.html')
+
+@app.route('/asl-class.html')
+def classes3():
+  return render_template('asl-class.html')
+
 
 
 if __name__=="__main__":
